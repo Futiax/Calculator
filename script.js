@@ -5,7 +5,7 @@ async function calculateGold() {
         const response = await fetch(`http://82.64.36.59:8182/players/%23${playerTag}`)
         // Afficher la réponse brute dans la console pour le débogage
         console.log(response);
-        const data = JSON.parse(response);
+        const data = await response.json();
         const brawlers = data.brawlers;
         const or_costs = [0, 20, 35, 75, 140, 290, 480, 800, 1250, 1875, 2800];
         let totalGoldNeeded = 0;
