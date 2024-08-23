@@ -9,30 +9,27 @@ async function calculateGold() {
         const brawlers = data.brawlers;
         const or_costs = [0, 20, 35, 75, 140, 290, 480, 800, 1250, 1875, 2800];
         let totalGoldNeeded = 0;
-
+        const lvlmax = document.getElementById("levelRange").value;
+        const gamax = document.getElementById("gadgetRange").value;
+        const spmax = document.getElementById("SPRange").value;
+        const gemax = document.getElementById("gearsRange").value;
         brawlers.forEach(brawler => {
             const level = brawler.power;
-            const remainingLevels = 10 - level;
 
             // Coût pour les niveaux restants
-            for (let i = level; i < 10; i++) {
+            for (let i = level; i < lvlmax; i++) {
                 totalGoldNeeded += or_costs[i];
             }
-
+            console.log(`${brawler.name} ${brawler.gears.length} équipement(s) et ${brawler.gadgets.length} gadget(s) et ${brawler.starPowers.length} pouvoir(s) star`)
+            // Vérifier les équipements
+            totalGoldNeeded += Math.max(0,(gemax - brawler.gears.length) * 1000);
             // Vérifier les gadgets
-            const hasTwoGadgets = brawler.gadgets.length === 2;
-            if (!hasTwoGadgets) {
-                totalGoldNeeded += (2 - brawler.gadgets.length) * 1000;
-            }
-
+            totalGoldNeeded += (gamax - brawler.gadgets.length) * 1000;
             // Vérifier les star powers
-            const hasTwoStarPowers = brawler.starPowers.length === 2;
-            if (!hasTwoStarPowers) {
-                totalGoldNeeded += (2 - brawler.starPowers.length) * 2000;
-            }
+            totalGoldNeeded += (spmax - brawler.starPowers.length) * 2000;
         });
 
-        resultElement.textContent = `Vous avez besoin de ${totalGoldNeeded} or pour maximiser votre compte.`;
+        resultElement.textContent = `Vous avez besoin de ${totalGoldNeeded} or pour maximiser votre compte, sois environ ${Math.round(totalGoldNeeded/49.8069)} prix star`;
 
     } catch (error) {
         console.error('Erreur:', error);
