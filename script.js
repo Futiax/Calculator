@@ -6,7 +6,7 @@ async function calculateGold() {
         const response = await fetch(`https://api.brawlstars.com/v1/players/${playerTag}`, {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImQzMjk4NjNjLWE3ZWMtNDRmZS04Y2JkLTJmYmY4OWJjYzdlOSIsImlhdCI6MTcyMzg1MDI0Mywic3ViIjoiZGV2ZWxvcGVyLzkxMDkzZDg1LTY2YTQtNjhjNy0zMzA5LTA4ZTU2MDFkNTM0NCIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTk1LjIwMS4yMTUuMjAzIl0sInR5cGUiOiJjbGllbnQifV19.LumQGnXM7yTsC5rSFqoe4xdBIex54ZE9j5sHdXsf2CNnTMEEWh7Gn4YEgyAD0iIPVmiTE8o8KnaiwCObnJZgSA`,
+                'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImViOWQ5Y2EzLTVhNzMtNDFhYi1iN2RhLTBmMmVkZTJiNTQzMSIsImlhdCI6MTcyNDQyODYyNiwic3ViIjoiZGV2ZWxvcGVyLzkxMDkzZDg1LTY2YTQtNjhjNy0zMzA5LTA4ZTU2MDFkNTM0NCIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiODIuNjQuMzYuNTkiLCI4OC4xNzUuMTg1LjE4NCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.9_1-sTULKSfD55k2_6uv-d9Hmnr9J40kwqbizVjjnNlTEm1j7GokVqMDDD3Z10dOHg0wJJS2KKViCPJv8iw21g`,
                 'Content-Type': 'application/json'
             }
         });
