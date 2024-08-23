@@ -1,33 +1,11 @@
 async function calculateGold() {
     const playerTag = document.getElementById('playerTag').value.replace('#', '');
     const resultElement = document.getElementById('result');
-
     try {
-        const response = await fetch(`https://api.brawlstars.com/v1/players/%23${playerTag}`, {
-            "headers": {
-              "accept": "application/json",
-              "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImM5ZjllZmUxLTY2MTAtZDAzYS1lYjU1LTdmNDI0M2VlMjBkNCIsImlhdCI6MTcyNDQzMTgwMywiZXhwIjoxNzI0NDM1NDAzLCJzdWIiOiJkZXZlbG9wZXIvOTEwOTNkODUtNjZhNC02OGM3LTMzMDktMDhlNTYwMWQ1MzQ0Iiwic2NvcGVzIjpbImJyYXdsc3RhcnMiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL2Jyb256ZSIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI4Mi42NC4zNi41OS8zMiJdLCJ0eXBlIjoiY2xpZW50In0seyJvcmlnaW5zIjpbImRldmVsb3Blci5icmF3bHN0YXJzLmNvbSJdLCJ0eXBlIjoiY29ycyJ9XX0.ktJOWwnA6VuAUUOHBvh4ZDCrv5hRid8Yfn68gEeEUMX91UboBr1pgstYu3NBEOZfkGqD-bGG4elDVIDTrJSuPw",
-              "priority": "u=1, i",
-              "sec-fetch-dest": "empty",
-              "sec-fetch-mode": "cors",
-              "sec-fetch-site": "same-site"
-            },
-            "referrer": "https://developer.brawlstars.com/",
-            "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": null,
-            "method": "GET",
-            "mode": "cors",
-            "credentials": "include"
-          });
+        const response = await fetch(`http://82.64.36.59:8182/players/%23${playerTag}`)
         // Afficher la réponse brute dans la console pour le débogage
-        const rawData = await response.text();
-        console.log(rawData);
-
-        if (!response.ok) {
-            throw new Error(rawData);
-        }
-
-        const data = JSON.parse(rawData);
+        console.log(response);
+        const data = JSON.parse(response);
         const brawlers = data.brawlers;
         const or_costs = [0, 20, 35, 75, 140, 290, 480, 800, 1250, 1875, 2800];
         let totalGoldNeeded = 0;
