@@ -3,53 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="styles.css">
-        <title>Calculateur d'Or Brawl Stars</title>
+        <title>Calculateur de Rank 35 </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="script.js" defer></script>
     </head>
 <body>
     <div class="container">
-        <h1>Calculateur d'Or Brawl Stars</h1>
+        <h1>Calculateur de Rank 35</h1>
         <input type="text" id="playerTag" placeholder="Entrez votre tag de joueur (#XXXXXX)">
         <div class="grid-container">
-          <div class="slider-item">
-            <div class="slider-with-labels">
-                <span class="min-label">1</span>
-                <input type="range" id="levelSlider" min="1" max="11" value="10" step="1">
-                <span class="max-label">11</span>
-            </div>
-        </div>
-        <div class="text-item">Level</div>
-        
-        <div class="slider-item">
-            <div class="slider-with-labels">
-                <span class="min-label">0</span>
-                <input type="range" id="gadgetsSlider" min="0" max="2" value="1" step="1">
-              <span class="max-label">2</span>
-            </div>
-          </div>
-          <div class="text-item">Gadgets</div>
-      
-          <div class="slider-item">
-            <div class="slider-with-labels">
-              <span class="min-label">0</span>
-              <input type="range" id="starPowersSlider" min="0" max="2" value="1" step="1">
-              <span class="max-label">2</span>
-            </div>
-          </div>
-          <div class="text-item">Star Powers</div>
-      
-          <div class="slider-item">
-            <div class="slider-with-labels">
-              <span class="min-label">0</span>
-              <input type="range" id="gearsSlider" min="0" max="6" value="2" step="1">
-              <span class="max-label">6</span>
-            </div>
-          </div>
-          <div class="text-item">Gears</div>
-        </div>
-      
-        <button onclick="calculateGold()">Calculer l'or nécessaire</button>
+        <button onclick="calculateTrophies()">Calculer les trophées manquants</button>
         <p id="result"></p>
         <pre id="responseData"></pre> <!-- Zone pour afficher la réponse brute -->
       </div>
