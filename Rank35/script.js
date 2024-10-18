@@ -6,24 +6,26 @@ async function calculateTrophies() {
         // Afficher la réponse brute dans la console pour le débogage
         console.log(response);
         let dateend = new Date("2024-10-28T09:00:00").getTime();
-        actualdate = new Date.now().getTime();
+        actualdate = Date.now();
         let diff = Math.floor((dateend - actualdate)/1000);
         const data = await response.json();
         const brawlers = data.brawlers;
-        let maxtrophies = [];
+        let trophies = [];
         let neededbrawlers = 10;
         let neededtrophies = 0;
         brawlers.forEach(brawler => {
-            maxtrophies.push(brawler.trophies);
-            if (brawler.rank = 35) {
+            trophies.push(brawler.trophies);
+            if (brawler.rank == 35) {
                 neededbrawlers--;
             }
         });
-        maxtrophies.sort((a, b) => b - a);
+        console.log(neededbrawlers);
+        trophies.sort((a, b) => b - a);
         for (let i = 0; i < neededbrawlers; i++) {
             neededtrophies += 1250-trophies[i];
+            console.log(trophies[i]);
         }
-        resultElement.textContent = `Vous avez besoin de ${neededtrophies} trophées pour votrea avoir 10 rank 35, sois environ ${neededtrophies/diff} trophées/sec. Il vous manque dans ce cadre : ${ge} Gears   ${ga} Gadgets   ${sp} Star powers`;
+        resultElement.textContent = `Vous avez besoin de ${neededtrophies} trophées pour votrea avoir 10 rank 35, sois environ ${Math.round(neededtrophies*100/diff)/100} trophées/sec, ${Math.round(neededtrophies/(diff/0.6))*100} tr/min, ${Math.round(neededtrophies/(diff/36))*100} tr/h, ${Math.round(neededtrophies/(diff/864))*100} tr/days.`;
 
     } catch (error) {
         console.error('Erreur:', error);
