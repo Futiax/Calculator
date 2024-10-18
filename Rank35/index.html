@@ -12,8 +12,17 @@
         <h1>Calculateur de Rank 35</h1>
         <input type="text" id="playerTag" placeholder="Entrez votre tag de joueur (#XXXXXX)">
         <div class="grid-container">
+          <div class="slider-item">
+            <div class="slider-with-labels">
+              <span class="min-label">0</span>
+              <input type="range" id="Decimals" min="0" max="10" value="3" step="1">
+              <span class="max-label">10</span>
+            </div>
+          </div>
+          <div class="text-item">Decimals</div>
+        </div>
         <button onclick="calculateTrophies()">Calculer les trophées manquants</button>
-        <p id="result"></p>
+        <pre id="result"></pre>
         <pre id="responseData"></pre> <!-- Zone pour afficher la réponse brute -->
       </div>
     </body>

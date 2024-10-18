@@ -1,5 +1,6 @@
 async function calculateTrophies() {
     const playerTag = document.getElementById('playerTag').value.replace('#', '');
+    const decimals = Math.pow(10,document.getElementById('Decimals').value);
     const resultElement = document.getElementById('result');
     try {
         const response = await fetch(`http://yux.freeboxos.fr:8182/players/%23${playerTag}`)
@@ -19,13 +20,14 @@ async function calculateTrophies() {
                 neededbrawlers--;
             }
         });
-        console.log(neededbrawlers);
         trophies.sort((a, b) => b - a);
         for (let i = 0; i < neededbrawlers; i++) {
             neededtrophies += 1250-trophies[i];
-            console.log(trophies[i]);
         }
-        resultElement.textContent = `Vous avez besoin de ${neededtrophies} trophées pour votrea avoir 10 rank 35, sois environ ${Math.round(neededtrophies*100/diff)/100} trophées/sec, ${Math.round(neededtrophies/(diff/0.6))*100} tr/min, ${Math.round(neededtrophies/(diff/36))*100} tr/h, ${Math.round(neededtrophies/(diff/864))*100} tr/days.`;
+        console.log(neededtrophies);
+        console.log(diff);
+        console.log(decimals)
+        resultElement.textContent = `Vous avez besoin de ${neededtrophies} trophées sois : \n${Math.round(neededtrophies*decimals/diff)/decimals} trophées/sec \n${Math.round(neededtrophies*60*decimals/diff)/decimals} tr/min \n${Math.round(neededtrophies*3600*decimals/diff)/decimals} tr/h \n${Math.round(neededtrophies*86400*decimals/diff)/decimals} tr/days.`;
 
     } catch (error) {
         console.error('Erreur:', error);
